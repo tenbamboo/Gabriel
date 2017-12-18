@@ -8,19 +8,6 @@ var Index = {
     initDOM: function() {},
     initTool: function() {
 
-        //获取用户名和picker 如果有的话，则直接显示详情
-
-
-        var u = Index.getParam('userName');
-        var p = Index.getParam('picker')
-        if (u != '' && u != null && p != '' && p != null) {
-            Index.showResult(u, p)
-        } else {
-            Index.initStartAnimate();
-        }
-
-
-
         // Nest.init();
         Index.initSize();
         new DateSelector({
@@ -44,8 +31,8 @@ var Index = {
         $("#submitBtn").click(function() {
             Index.gotoDetail();
         });
-        $("#againBtn").click(function() {
-            Index.showBegin();
+        $("#picker").click(function() {
+            $("#userName").blur()
         });
     },
     initSize: function() {
@@ -74,53 +61,8 @@ var Index = {
         setTimeout(function() {
             $(".overlayText").fadeIn();
             $(".overlay").fadeIn();
-        }, 100)
-        setTimeout(function() {
-            var userName = $("#userName").val();
-            var picker = $("#picker").val();
-            Index.setRoute(userName, picker);
-            Index.showResult(userName, picker);
-        }, 1500)
-    },
-    setRoute: function(u, p) {
-        // 控制路由
-        var path = window.location.protocol + "//" + window.location.host +
-            window.location.pathname;
-
-        path += "&1=1&userName=" + u + "&picker=" + p
-        history.pushState({}, "生命地图", path);
-    },
-    showResult: function(u, p) {
-
-        // 显示数据
-        $("#userNameR").html(u)
-        $("#pickerR").html(p)
-
-        // 样式控制
-        $(".overlayText").fadeOut();
-        $(".overlay").fadeOut();
-        $("#resultArea").fadeIn();
-        $("#inputArea").hide().removeClass("slideOutUp").removeClass(
-            "slideInDown");
-        setTimeout(function() {
-            $("body").height(document.body.scrollHeight);
+            window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val()
         }, 500)
-
-    },
-    showBegin: function() {
-        // $(window).scrollTop(0);
-        $("#resultArea").fadeOut();
-        Index.initSize();
-        Index.initStartAnimate();
-
-        if (window.history.length > 2) {
-            window.history.back()
-        } else {
-            var path = window.location.protocol + "//" + window.location.host +
-                window.location.pathname;
-            history.replaceState({}, "生命地图", path);
-        }
-
     },
     formatDate: function(date, format) {
 
@@ -162,20 +104,6 @@ var Index = {
         return format;
     },
 
-    getParam: function(name) {
-        return Index.getUrlParam(name) || localStorage.getItem(name) ||
-            sessionStorage.getItem(name);
-    },
-
-    getUrlParam: function(name) {
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) {
-            return decodeURI(r[2]);
-        }
-
-        return null;
-    },
 };
 jQuery(document).ready(function($) {
     Index.init();
