@@ -21,7 +21,7 @@
         <h2>生命地图</h2>
         <div>
             <img src="img/name.png">
-            <input type="text" placeholder="您的姓名" maxlength="20" />
+            <input type="text" placeholder="您的姓名" maxlength="20" id="userName" />
         </div>
         <div>
             <img src="img/date.png">
@@ -33,6 +33,12 @@
     <div class="overlay"></div>
     <div class="resultArea" id="resultArea">
         <h3 class="subTitle">地图详情</h3>
+        <div class="subArea">
+            <p>您的姓名: <font id="userNameR"></font></p>
+        </div>
+        <div class="subArea">
+            <p>您的生日: <font id="pickerR"></font></p>
+        </div>
         <div class="spaceArea ">
             <div class="triangleUp">
                 <b>3</b>
@@ -111,15 +117,12 @@
         <a class="againBtn" id="againBtn">再测一次</a>
     </div>
 
-
-
-
     <div id="datePickerTargetContainer"></div>
 
     <script src="lib/js/jquery.js"></script>
     <script src="lib/datepicker/dateSelector.js"></script>
     <script src="js/pinyin.js"></script>
-    <script src="lib/js/nest.js" count="20" zindex="-2" opacity="1" color="255,255,255"></script>
+    <!-- <script src="lib/js/nest.js" count="20" zindex="-2" opacity="1" color="255,255,255"></script> -->
     <script src="js/index.js"></script>
 </body>
 

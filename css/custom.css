@@ -112,11 +112,12 @@ input {
     color: #e47107;
 }
 
-.indexContainer {
+
+/* .indexContainer {
     background: #000000;
     background: -webkit-linear-gradient(to bottom, #434343, #000000);
-    background: linear-gradient(to bottom, #434343, #000000);
-}
+    background: linear-gradient(to bottom, #434343, #000000); 
+}*/
 
 .indexContainer .inputArea {
     position: absolute;
@@ -127,14 +128,14 @@ input {
 
 .indexContainer .inputArea h2 {
     margin-bottom: 20px;
-    color: #ffd27c;
+    color: #009688;
 }
 
 .indexContainer .inputArea input {
     background: transparent;
     border-bottom: 1px solid #c6c5b9;
     padding: 10px 10px 10px 31px;
-    color: #c6c5b9;
+    color: #2f2f2f;
     font-size: 1.1em;
     margin-left: -25px;
 }
@@ -155,7 +156,7 @@ input {
     padding: 10px;
     margin-top: 15px;
     border-radius: 3px;
-    background-color: #7b7b7b;
+    background-color: #4CAF50;
     border: 1px solid #fff;
     color: #fff;
 }
@@ -237,11 +238,11 @@ input {
 }
 
 .resultArea .blockArea {
-    margin-top: 490px;
+    margin-top: 325px;
 }
 
 .resultArea .subArea {
-    color: #fff;
+    color: #292c29;
     font-size: 1.2em;
     padding: 0 15px;
     border: 1px solid #c1c0b4;
@@ -259,19 +260,19 @@ input {
 }
 
 .resultArea .subTitle {
-    color: #ffd27c;
+    color: #009688;
     font-size: 1.3em;
     margin: 15px 10px;
 }
 
 .resultArea .againBtn {
-    background-color: #ffd27c;
-    color: #fff;
     display: block;
     text-align: center;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #FF9800;
+    background-color: #4CAF50;
+    border: 1px solid #fff;
+    color: #fff;
     border-radius: 3px;
 }
 
@@ -284,24 +285,24 @@ input {
     background: url(../img/triangle.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    width: 115px;
-    height: 76px;
+    width: 92px;
+    height: 63px;
     text-align: center;
-    padding-top: 47px;
-    color: #fff;
+    padding-top: 30px;
+    color: #292c29;
 }
 
 .triangleDown {
     background: url(../img/triangle.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    width: 115px;
-    height: 76px;
-    text-align: center;
-    padding-top: 47px;
-    color: #fff;
+    color: #292c29;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
+    width: 92px;
+    height: 63px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .rectangle {
@@ -310,7 +311,7 @@ input {
     height: 20px;
     text-align: center;
     padding-top: 10px;
-    color: #fff;
+    color: #292c29;
     border: 2px solid #babaae;
 }
 
@@ -322,7 +323,7 @@ input {
 
 .triangleUp b {
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     font-weight: 900;
     font-size: 1.1em;
 }
@@ -334,55 +335,55 @@ input {
 }
 
 .spaceArea>div.triangleUp:nth-child(2) {
-    top: 65px;
+    top: 45px;
     left: 35%;
     left: calc( 50% - 50px);
 }
 
 .spaceArea>div.triangleUp:nth-child(3) {
-    top: 97px;
+    top: 65px;
     left: 11%;
     left: calc( 50% - 145px);
 }
 
 .spaceArea>div.triangleUp:nth-child(4) {
-    top: 97px;
+    top: 65px;
     left: 63%;
     left: calc( 50% - -45px);
 }
 
 .spaceArea>div.rectangle:nth-child(1) {
-    top: 220px;
+    top: 150px;
     left: 3%;
 }
 
 .spaceArea>div.rectangle:nth-child(2) {
-    top: 220px;
+    top: 150px;
     left: 22%;
     left: calc(25% - 0px);
 }
 
 .spaceArea>div.rectangle:nth-child(3) {
-    top: 220px;
+    top: 150px;
     left: 42%;
     left: calc(45% - -7px);
 }
 
 .spaceArea>div.rectangle:nth-child(4) {
-    top: 220px;
+    top: 150px;
     left: 42%;
     left: calc(45% - -88px);
     width: 80px;
 }
 
 .spaceArea>div.triangleDown:nth-child(1) {
-    top: 260px;
+    top: 175px;
     left: 11%;
     left: calc( 50% - 145px);
 }
 
 .spaceArea>div.triangleDown:nth-child(2) {
-    top: 260px;
+    top: 175px;
     left: 63%;
     left: calc( 50% - -45px);
 }
@@ -390,11 +391,11 @@ input {
 .spaceArea>div.triangleDown:nth-child(3) {
     left: 35%;
     left: calc( 50% - 50px);
-    top: 300px;
+    top: 185px;
 }
 
 .spaceArea>div.triangleDown:nth-child(4) {
     left: 35%;
     left: calc( 50% - 50px);
-    top: 380px;
+    top: 245px;
 }
