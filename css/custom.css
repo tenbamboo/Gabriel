@@ -122,12 +122,17 @@ input {
 .indexContainer .inputArea {
     position: absolute;
     width: 100%;
-    top: 23%;
-    top: calc(50% - 150px);
+    top: 18%;
+    top: calc(40% - 150px);
 }
 
 .indexContainer .inputArea h2 {
     margin-bottom: 20px;
+    color: #009688;
+}
+
+.indexContainer .inputArea h3 {
+    margin: 20px;
     color: #009688;
 }
 
@@ -174,6 +179,27 @@ input {
     display: none;
     animation: breath 2s infinite alternate;
     -webkit-animation: breath 2s infinite alternate;
+}
+
+.searchList {
+    border-bottom: 1px solid #c6c5b9;
+}
+
+.searchList li {
+    padding: 10px;
+    text-align: left;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #c6c5b9;
+}
+
+.searchList li .content {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.searchList li .operBtn img {
+    padding-left: 20px;
 }
 
 @keyframes breath {
@@ -235,10 +261,11 @@ input {
 
 .resultArea {
     display: none;
+    font-size: 0.9em;
 }
 
 .resultArea .blockArea {
-    margin-top: 325px;
+    margin-top: 277px;
 }
 
 .resultArea .subArea {
@@ -246,12 +273,12 @@ input {
     font-size: 1.2em;
     padding: 0 15px;
     border: 1px solid #c1c0b4;
-    margin: 10px;
+    margin: 5px;
     border-radius: 3px;
 }
 
 .resultArea .subArea p {
-    margin: 5px 0;
+    margin: 3px 0;
 }
 
 .resultArea .subArea2 p {
@@ -262,7 +289,7 @@ input {
 .resultArea .subTitle {
     color: #009688;
     font-size: 1.3em;
-    margin: 15px 10px;
+    margin: 6px 10px;
 }
 
 .resultArea .againBtn {
@@ -285,8 +312,8 @@ input {
     background: url(../img/triangle.png) no-repeat;
     background-size: 100% 100%;
     position: absolute;
-    width: 92px;
-    height: 63px;
+    width: 84px;
+    height: 53px;
     text-align: center;
     padding-top: 30px;
     color: #292c29;
@@ -323,79 +350,79 @@ input {
 
 .triangleUp b {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: 900;
     font-size: 1.1em;
 }
 
 .spaceArea>div.triangleUp:nth-child(1) {
     top: -15px;
-    left: 35%;
+    left: 37%;
     left: calc( 50% - 50px);
 }
 
 .spaceArea>div.triangleUp:nth-child(2) {
-    top: 45px;
-    left: 35%;
+    top: 35px;
+    left: 36%;
     left: calc( 50% - 50px);
 }
 
 .spaceArea>div.triangleUp:nth-child(3) {
-    top: 65px;
-    left: 11%;
-    left: calc( 50% - 145px);
+    top: 46px;
+    left: 18%;
+    left: calc( 50% - 125px);
 }
 
 .spaceArea>div.triangleUp:nth-child(4) {
-    top: 65px;
-    left: 63%;
-    left: calc( 50% - -45px);
+    top: 45px;
+    left: 56%;
+    left: calc( 50% - -24px);
 }
 
 .spaceArea>div.rectangle:nth-child(1) {
-    top: 150px;
+    top: 115px;
     left: 3%;
 }
 
 .spaceArea>div.rectangle:nth-child(2) {
-    top: 150px;
+    top: 115px;
     left: 22%;
     left: calc(25% - 0px);
 }
 
 .spaceArea>div.rectangle:nth-child(3) {
-    top: 150px;
+    top: 115px;
     left: 42%;
     left: calc(45% - -7px);
 }
 
 .spaceArea>div.rectangle:nth-child(4) {
-    top: 150px;
+    top: 115px;
     left: 42%;
     left: calc(45% - -88px);
     width: 80px;
 }
 
 .spaceArea>div.triangleDown:nth-child(1) {
-    top: 175px;
-    left: 11%;
-    left: calc( 50% - 145px);
+    top: 134px;
+    left: 18%;
+    left: calc( 50% - 125px);
 }
 
 .spaceArea>div.triangleDown:nth-child(2) {
-    top: 175px;
-    left: 63%;
-    left: calc( 50% - -45px);
+    top: 134px;
+    left: 56%;
+    left: calc( 50% - -24px);
 }
 
 .spaceArea>div.triangleDown:nth-child(3) {
-    left: 35%;
+    top: 145px;
+    left: 36%;
     left: calc( 50% - 50px);
-    top: 185px;
 }
 
 .spaceArea>div.triangleDown:nth-child(4) {
     left: 35%;
     left: calc( 50% - 50px);
-    top: 245px;
+    top: 200px;
 }

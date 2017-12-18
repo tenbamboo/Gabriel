@@ -28,7 +28,13 @@
             <input type="text" placeholder="您的出生日期" readonly id="picker" />
         </div>
         <button class="btn" id="submitBtn">点击进入生命地图</button>
+        <div id="historyArea">
+            <h3>查询历史</h3>
+            <ul class="searchList" id="searchList">
+            </ul>
+        </div>
     </div>
+
     <div class="overlayText">生命地图生成中。。。。</div>
     <div class="overlay"></div>
     <div id="datePickerTargetContainer"></div>
@@ -37,5 +43,3 @@
     <script src="lib/datepicker/dateSelector.js"></script>
     <script src="js/index.js"></script>
 </body>
-
-</html>
