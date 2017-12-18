@@ -87,7 +87,7 @@ var Index = {
         var path = window.location.protocol + "//" + window.location.host +
             window.location.pathname;
 
-        path += "?1=1&userName=" + u + "&picker=" + p
+        path += "&1=1&userName=" + u + "&picker=" + p
         history.pushState({}, "生命地图", path);
     },
     showResult: function(u, p) {
