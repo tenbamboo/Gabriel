@@ -268,6 +268,16 @@ input {
     margin-top: 277px;
 }
 
+.resultArea .subAreaFlex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.resultArea .subAreaFlex>div {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
 .resultArea .subArea {
     color: #292c29;
     font-size: 1.2em;
