@@ -69,12 +69,8 @@ var Index = {
             return;
         }
         $("#inputArea").addClass("slideOutUp");
-        setTimeout(function() {
-            Index.addItem();
-            $(".overlayText").fadeIn();
-            $(".overlay").fadeIn();
-            window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val()
-        }, 500)
+        Index.addItem();
+        window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val()
     },
     getItemList: function() {
         var serachList = localStorage.getItem('serachList')
