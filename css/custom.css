@@ -367,26 +367,22 @@ input {
 
 .spaceArea>div.triangleUp:nth-child(1) {
     top: -15px;
-    left: 37%;
-    left: calc( 50% - 50px);
+    left: 23%;
 }
 
 .spaceArea>div.triangleUp:nth-child(2) {
     top: 35px;
-    left: 36%;
-    left: calc( 50% - 50px);
+    left: 23%;
 }
 
 .spaceArea>div.triangleUp:nth-child(3) {
     top: 46px;
-    left: 18%;
-    left: calc( 50% - 125px);
+    left: 1%;
 }
 
 .spaceArea>div.triangleUp:nth-child(4) {
     top: 45px;
-    left: 56%;
-    left: calc( 50% - -24px);
+    left: 47%;
 }
 
 .spaceArea>div.rectangle:nth-child(1) {
@@ -402,7 +398,7 @@ input {
 
 .spaceArea>div.rectangle:nth-child(3) {
     top: 115px;
-    left: 42%;
+    left: 47%;
     left: calc(45% - -7px);
 }
 
@@ -415,24 +411,20 @@ input {
 
 .spaceArea>div.triangleDown:nth-child(1) {
     top: 134px;
-    left: 18%;
-    left: calc( 50% - 125px);
+    left: 1%;
 }
 
 .spaceArea>div.triangleDown:nth-child(2) {
     top: 134px;
-    left: 56%;
-    left: calc( 50% - -24px);
+    left: 47%;
 }
 
 .spaceArea>div.triangleDown:nth-child(3) {
     top: 145px;
-    left: 36%;
-    left: calc( 50% - 50px);
+    left: 23%;
 }
 
 .spaceArea>div.triangleDown:nth-child(4) {
-    left: 35%;
-    left: calc( 50% - 50px);
+    left: 23%;
     top: 200px;
 }
