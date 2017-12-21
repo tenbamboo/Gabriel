@@ -28,6 +28,7 @@ var Index = {
 
         var u = Index.getParam('userName');
         var p = Index.getParam('picker')
+        var age = Index.brithdayConAges(p)
             // 样式控制
             // 显示数据
         var array = u.split('');
@@ -40,14 +41,25 @@ var Index = {
 
         var res = getResult(Index.formatDate(p, 'yyyy'), Index.formatDate(p, 'MM'), Index.formatDate(p, 'dd'), pinyin)
         $("#userNameR").html(u)
-        $("#pickerR").html(p)
+        $("#pickerR").html(p + " (" + age + "岁)")
 
 
         for (var i in res) {
             $("#" + i).html(res[i])
         }
 
-        $("#u")
+
+
+        if (age >= res.e1 && age <= res.e2) {
+            $("#age1").addClass('color_red')
+        } else if (age >= res.f1 && age <= res.f2) {
+            $("#age2").addClass('color_red')
+        } else if (age >= res.g1 && age <= res.g2) {
+            $("#age3").addClass('color_red')
+        } else if (age >= res.v1) {
+            $("#age4").addClass('color_red')
+        }
+
 
         // //中部正方形
         // $("#a").html(res.a)
@@ -128,6 +140,48 @@ var Index = {
 
         return format;
     },
+    brithdayConAges: function(strBirthday) {
+        if (!strBirthday) {
+            return 0;
+        }
+
+        var returnAge;
+        var strBirthdayArr = strBirthday.split('-');
+        var birthYear = strBirthdayArr[0];
+        var birthMonth = strBirthdayArr[1];
+        var birthDay = strBirthdayArr[2];
+        var d = new Date();
+        var nowYear = d.getFullYear();
+        var nowMonth = d.getMonth() + 1;
+        var nowDay = d.getDate();
+
+        if (nowYear == birthYear) {
+            returnAge = 0; //同年 则为0岁
+        } else {
+            var ageDiff = nowYear - birthYear; //年之差
+            if (ageDiff > 0) {
+                if (nowMonth == birthMonth) {
+                    var dayDiff = nowDay - birthDay; //日之差
+                    if (dayDiff < 0) {
+                        returnAge = ageDiff - 1;
+                    } else {
+                        returnAge = ageDiff;
+                    }
+                } else {
+                    var monthDiff = nowMonth - birthMonth; //月之差
+                    if (monthDiff < 0) {
+                        returnAge = ageDiff - 1;
+                    } else {
+                        returnAge = ageDiff;
+                    }
+                }
+            } else {
+                returnAge = -1; //返回-1 表示出生日期输入错误 晚于今天
+            }
+        }
+
+        return returnAge; //返回周岁年龄
+    },
 
 };
 jQuery(document).ready(function($) {
@@ -147,7 +201,7 @@ function getResult(year, month, day, name) {
     p.d = dd + '/' + d;
     p.e = strAdd(a + b);
     p.e1 = 0;
-    p.e2 = currentYear() - parseInt(p.c) - d;
+    p.e2 = 36 - d;
     p.f = strAdd(b + c)
     p.f1 = p.e2 + 1;
     p.f2 = p.f1 + 8;
@@ -169,7 +223,7 @@ function getResult(year, month, day, name) {
         monthAdd = 20;
     }
     p.l1 = currentYear() + '年' + monthStart + '月';
-    p.l2 = parseInt(currentYear() + (monthStart + monthAdd) / 12) + '年' + (monthStart + monthAdd) % 12 + '月';
+    p.l2 = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12) + '年' + (monthStart + monthAdd - 1) % 12 + '月';
     var mm = strAdd2(pinyin2num(name));
     var m = strAdd(mm);
     p.m = mm + '/' + m;
@@ -187,9 +241,9 @@ function getResult(year, month, day, name) {
     p.t = strAdd(pinyinCount(name, 7) + pinyinCount(name, 9));
     var list = [];
     list.push(d);
-    list.push(e);
-    list.push(f);
-    list.push(g);
+    list.push(p.e);
+    list.push(p.f);
+    list.push(p.g);
     list.push(p.h);
     list.push(p.i);
     list.push(p.j);
@@ -197,6 +251,14 @@ function getResult(year, month, day, name) {
     list.push(m);
     list.push(n);
     list.push(o);
+    list.push((mm + '').split('')[0]);
+    list.push((mm + '').split('')[1]);
+    list.push((nn + '').split('')[1]);
+    list.push((nn + '').split('')[0]);
+    list.push((nn2 + '').split('')[0]);
+    list.push((nn2 + '').split('')[1]);
+    list.push((oo + '').split('')[0]);
+    list.push((oo + '').split('')[1]);
     list.push(p.p);
     for (var i = 1; i < 10; i++) {
         var ex = false;
