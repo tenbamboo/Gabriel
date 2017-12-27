@@ -317,6 +317,7 @@ input {
 .spaceArea {
     position: relative;
     height: 1px;
+    font-weight: 900;
 }
 
 .triangleUp {

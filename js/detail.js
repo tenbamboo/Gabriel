@@ -197,8 +197,13 @@ function getResult(year, month, day, name) {
     p.c = year;
     var c = strAdd(p.c);
     var dd = strAdd2(p.a) + strAdd2(p.b) + strAdd2(p.c);
-    var d = strAdd(dd);
-    p.d = dd + '/' + d;
+    var dd2 = strAdd2(dd);
+    var d = strAdd2(dd2);
+    if (dd2 = d) {
+        p.d = dd + '/' + d;
+    } else {
+        p.d = dd + '/' + dd2 + '/' + d;
+    }
     p.e = strAdd(a + b);
     p.e1 = 0;
     p.e2 = 36 - d;
@@ -223,14 +228,27 @@ function getResult(year, month, day, name) {
         monthAdd = 20;
     }
     p.l1 = currentYear() + '年' + monthStart + '月';
-    p.l2 = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12) + '年' + (monthStart + monthAdd - 1) % 12 + '月';
+    var monthEnd = (monthStart + monthAdd - 1) % 12;
+    if (monthEnd == 0) {
+        monthEnd = 12;
+    }
+    p.l2 = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12) + '年' + monthEnd + '月';
     var mm = strAdd2(pinyin2num(name));
-    var m = strAdd(mm);
-    p.m = mm + '/' + m;
+    var mm2 = strAdd2(mm);
+    var m = strAdd(mm2);
+    if (mm2 = m) {
+        p.m = mm + '/' + m;
+    } else {
+        p.m = mm + '/' + mm2 + '/' + m;
+    }
     var nn = strAdd2(yuanyin2num(name));
     var nn2 = strAdd2(nn);
-    var n = strAdd(nn);
-    p.n = nn + '/' + nn2 + '/' + n;
+    var n = strAdd2(nn);
+    if (nn2 = n) {
+        p.n = nn + '/' + n;
+    } else {
+        p.n = nn + '/' + nn2 + '/' + n;
+    }
     var oo = mm - nn;
     var o = strAdd(oo);
     p.o = oo + '/' + o;
@@ -251,12 +269,24 @@ function getResult(year, month, day, name) {
     list.push(m);
     list.push(n);
     list.push(o);
+    list.push((dd + '').split('')[0]);
+    list.push((dd + '').split('')[1]);
+    if (dd2 != d) {
+        list.push((dd2 + '').split('')[0]);
+        list.push((dd2 + '').split('')[1]);
+    }
     list.push((mm + '').split('')[0]);
     list.push((mm + '').split('')[1]);
+    if (mm2 != m) {
+        list.push((mm2 + '').split('')[0]);
+        list.push((mm2 + '').split('')[1]);
+    }
     list.push((nn + '').split('')[1]);
     list.push((nn + '').split('')[0]);
-    list.push((nn2 + '').split('')[0]);
-    list.push((nn2 + '').split('')[1]);
+    if (nn2 != n) {
+        list.push((nn2 + '').split('')[0]);
+        list.push((nn2 + '').split('')[1]);
+    }
     list.push((oo + '').split('')[0]);
     list.push((oo + '').split('')[1]);
     list.push(p.p);
@@ -269,10 +299,10 @@ function getResult(year, month, day, name) {
             }
         }
         if (!ex) {
-            p.u = i;
+            p.u = ',' + i;
         }
     }
-
+    p.u.substr(1);
     return p;
 }
 
