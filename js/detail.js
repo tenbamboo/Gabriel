@@ -199,7 +199,7 @@ function getResult(year, month, day, name) {
     var dd = strAdd2(p.a) + strAdd2(p.b) + strAdd2(p.c);
     var dd2 = strAdd2(dd);
     var d = strAdd2(dd2);
-    if (dd2 = d) {
+    if (dd2 == d) {
         p.d = dd + '/' + d;
     } else {
         p.d = dd + '/' + dd2 + '/' + d;
@@ -236,7 +236,7 @@ function getResult(year, month, day, name) {
     var mm = strAdd2(pinyin2num(name));
     var mm2 = strAdd2(mm);
     var m = strAdd(mm2);
-    if (mm2 = m) {
+    if (mm2 == m) {
         p.m = mm + '/' + m;
     } else {
         p.m = mm + '/' + mm2 + '/' + m;
@@ -244,7 +244,7 @@ function getResult(year, month, day, name) {
     var nn = strAdd2(yuanyin2num(name));
     var nn2 = strAdd2(nn);
     var n = strAdd2(nn);
-    if (nn2 = n) {
+    if (nn2 == n) {
         p.n = nn + '/' + n;
     } else {
         p.n = nn + '/' + nn2 + '/' + n;
