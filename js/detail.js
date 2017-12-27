@@ -250,8 +250,13 @@ function getResult(year, month, day, name) {
         p.n = nn + '/' + nn2 + '/' + n;
     }
     var oo = mm - nn;
-    var o = strAdd(oo);
-    p.o = oo + '/' + o;
+    var oo2 = strAdd2(oo);
+    var o = strAdd2(oo);
+    if (oo2 == o) {
+        p.o = oo + '/' + o;
+    } else {
+        p.o = oo + '/' + oo2 + '/' + o;
+    }
     p.p = strAdd(d + m);
     p.q = strAdd(pinyinCount(name, 1) + pinyinCount(name, 8));
     p.r = strAdd(pinyinCount(name, 2) + pinyinCount(name, 3) + pinyinCount(name, 6));
