@@ -290,6 +290,7 @@ function getResult(year, month, day, name) {
     list.push((oo + '').split('')[0]);
     list.push((oo + '').split('')[1]);
     list.push(p.p);
+    p.u = '';
     for (var i = 1; i < 10; i++) {
         var ex = false;
         for (var n in list) {
@@ -299,10 +300,10 @@ function getResult(year, month, day, name) {
             }
         }
         if (!ex) {
-            p.u = ',' + i;
+            p.u += ',' + i;
         }
     }
-    p.u.substr(1);
+    p.u = p.u.substr(1);
     return p;
 }
 
