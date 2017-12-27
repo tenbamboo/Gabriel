@@ -243,7 +243,7 @@ function getResult(year, month, day, name) {
     }
     var nn = strAdd2(yuanyin2num(name));
     var nn2 = strAdd2(nn);
-    var n = strAdd2(nn);
+    var n = strAdd2(nn2);
     if (nn2 == n) {
         p.n = nn + '/' + n;
     } else {
@@ -251,7 +251,7 @@ function getResult(year, month, day, name) {
     }
     var oo = mm - nn;
     var oo2 = strAdd2(oo);
-    var o = strAdd2(oo);
+    var o = strAdd2(oo2);
     if (oo2 == o) {
         p.o = oo + '/' + o;
     } else {
