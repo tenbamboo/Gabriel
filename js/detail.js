@@ -228,11 +228,14 @@ function getResult(year, month, day, name) {
         monthAdd = 20;
     }
     p.l1 = currentYear() + '年' + monthStart + '月';
+	var yearEnd = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12);
     var monthEnd = (monthStart + monthAdd - 1) % 12;
     if (monthEnd == 0) {
         monthEnd = 12;
+		yearEnd = yearEnd - 1;
     }
-    p.l2 = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12) + '年' + monthEnd + '月';
+	
+    p.l2 = yearEnd + '年' + monthEnd + '月';
     var mm = strAdd2(pinyin2num(name));
     var mm2 = strAdd2(mm);
     var m = strAdd(mm2);
@@ -404,3 +407,4 @@ function pinyinCount(name, num) {
     }
     return n;
 }
+
