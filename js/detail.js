@@ -32,10 +32,8 @@ var Index = {
             // 样式控制
             // 显示数据
         var array = u.split('');
-        var pinyin = '';
-        for (var i in array) {
-            pinyin += PinYin.convertPinyin(array[i])
-        }
+        var pinyin = pinyinUtil.getPinyin(u, '');
+
 
 
 
@@ -45,10 +43,10 @@ var Index = {
 
 
         for (var i in res) {
-	    if(res[i]){
-	       $("#" + i).html(res[i])
-	    }
-           
+            if (res[i]) {
+                $("#" + i).html(res[i])
+            }
+
         }
 
 
@@ -231,13 +229,13 @@ function getResult(year, month, day, name) {
         monthAdd = 20;
     }
     p.l1 = currentYear() + '年' + monthStart + '月';
-	var yearEnd = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12);
+    var yearEnd = parseInt(currentYear() + (monthStart + monthAdd - 1) / 12);
     var monthEnd = (monthStart + monthAdd - 1) % 12;
     if (monthEnd == 0) {
         monthEnd = 12;
-		yearEnd = yearEnd - 1;
+        yearEnd = yearEnd - 1;
     }
-	
+
     p.l2 = yearEnd + '年' + monthEnd + '月';
     var mm = strAdd2(pinyin2num(name));
     var mm2 = strAdd2(mm);
@@ -411,4 +409,3 @@ function pinyinCount(name, num) {
     }
     return n;
 }
-
