@@ -24,6 +24,19 @@ var Index = {
             window.location.href = "index.html"
         });
     },
+
+    isBlank: function(obj) {
+        if (obj == undefined || obj == null || obj == 'null' || obj == '' || obj.length == 0) {
+            return true;
+        } else if (typeof obj == "object" && obj.length == undefined) {
+            for (var name in obj) {
+                return false;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    },
     showResult: function(u, p) {
 
         var u = Index.getParam('userName');
@@ -43,7 +56,7 @@ var Index = {
 
 
         for (var i in res) {
-            if (res[i]) {
+            if (!Index.isBlank(res[i])) {
                 $("#" + i).html(res[i])
             }
 
