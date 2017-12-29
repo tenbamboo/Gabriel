@@ -45,7 +45,10 @@ var Index = {
 
 
         for (var i in res) {
-            $("#" + i).html(res[i])
+	    if(res[i]){
+	       $("#" + i).html(res[i])
+	    }
+           
         }
 
 
