@@ -56,7 +56,7 @@ var Index = {
 
 
         for (var i in res) {
-            if (!Index.isBlank(res[i])) {
+            if (res[i] === 0 || !Index.isBlank(res[i])) {
                 $("#" + i).html(res[i])
             }
 
