@@ -57,7 +57,7 @@ var Index = {
         $("body").height(height);
     },
     initStartAnimate: function() {
-        $("#inputArea").show().addClass("slideInDown")
+        // $("#inputArea").show().addClass("slideInDown")
     },
     gotoDetail: function() {
 
@@ -68,7 +68,7 @@ var Index = {
             alert('请选择您的生日')
             return;
         }
-        $("#inputArea").addClass("slideOutUp");
+        // $("#inputArea").addClass("slideOutUp");
         Index.addItem();
         window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val()
     },
