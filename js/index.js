@@ -38,7 +38,7 @@ var Index = {
         $("#searchList").on("click", ".operBtn img[data-search]", function() {
             var h = $(this).parent().siblings(".content").html()
             h = h.split('/')
-            window.location.href = "detail.html?userName=" + h[0] + "&picker=" + h[1] + "&pinyin=" + (h[2] == 'undefined' ? '暂无' : h[2])
+            window.location.href = "detail.html?userName=" + h[0] + "&picker=" + h[1] + "&pinyin=" + h[2]
         });
         $("#searchList").on("click", ".operBtn img[data-itemid]", function() {
             Index.removeItem(this)
@@ -98,10 +98,11 @@ var Index = {
             return;
         }
         serachList.reverse()
+
         var html = ""
         for (var i in serachList) {
             html += '<li>' +
-                '<span class="content">' + serachList[i].u + '/' + serachList[i].p + '/' + serachList[i].py + '</span>' +
+                '<span class="content">' + serachList[i].u + '/' + serachList[i].p + '/' + (serachList[i].py == undefined ? '' : serachList[i].py) + '</span>' +
                 '<div class="operBtn">' +
                 '<img src="img/search.png" data-search>' +
                 '<img src="img/delete.png" data-itemId="' + serachList[i].id + '">' +
