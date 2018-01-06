@@ -38,7 +38,7 @@ var Index = {
         $("#searchList").on("click", ".operBtn img[data-search]", function() {
             var h = $(this).parent().siblings(".content").html()
             h = h.split('/')
-            window.location.href = "detail.html?userName=" + h[0] + "&picker=" + h[1] + "&pinyin=" + (h[2] || '暂无')
+            window.location.href = "detail.html?userName=" + h[0] + "&picker=" + h[1] + "&pinyin=" + (h[2] == 'undefined' ? '暂无' : h[2])
         });
         $("#searchList").on("click", ".operBtn img[data-itemid]", function() {
             Index.removeItem(this)
