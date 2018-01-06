@@ -43,6 +43,17 @@ var Index = {
         $("#searchList").on("click", ".operBtn img[data-itemid]", function() {
             Index.removeItem(this)
         });
+        $("#userName").blur(function() {
+            if ($(this).val() != '') {
+
+
+                var u = $(this).val()
+                var array = u.split('');
+                var pinyin = pinyinUtil.getPinyin(u, '');
+                $("#userNamePinyin").val(pinyin)
+            }
+
+        });
 
 
     },
@@ -67,10 +78,13 @@ var Index = {
         } else if ($("#picker").val() == '') {
             alert('请选择您的生日')
             return;
+        } else if ($("#userNamePinyin").val() == '') {
+            alert('请选择您的姓名拼音')
+            return;
         }
         // $("#inputArea").addClass("slideOutUp");
         Index.addItem();
-        window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val()
+        window.location.href = "detail.html?userName=" + $("#userName").val() + "&picker=" + $("#picker").val() + "&pinyin=" + $("#userNamePinyin").val()
     },
     getItemList: function() {
         var serachList = localStorage.getItem('serachList')
@@ -107,6 +121,7 @@ var Index = {
         var item = {
             u: $("#userName").val(),
             p: $("#picker").val(),
+            py: $("#userNamePinyin").val(),
             id: $("#userName").val() + (new Date().getTime())
         }
 

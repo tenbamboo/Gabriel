@@ -41,11 +41,16 @@ var Index = {
 
         var u = Index.getParam('userName');
         var p = Index.getParam('picker')
+        var pinyin = Index.getParam('pinyin')
         var age = Index.brithdayConAges(p)
             // 样式控制
             // 显示数据
-        var array = u.split('');
-        var pinyin = pinyinUtil.getPinyin(u, '');
+
+        if (Index.isBlank(pinyin)) {
+            var array = u.split('');
+            pinyin = pinyinUtil.getPinyin(u, '');
+        }
+
 
 
 
