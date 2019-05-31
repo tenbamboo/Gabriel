@@ -1,12 +1,12 @@
 'use strict';
 var Index = {
-    init: function() {
+    init: function () {
         Index.initTool();
         Index.initDOM();
         Index.initEvent();
     },
-    initDOM: function() {},
-    initTool: function() {
+    initDOM: function () { },
+    initTool: function () {
         Index.showResult();
         //获取用户名和picker 如果有的话，则直接显示详情
 
@@ -19,13 +19,19 @@ var Index = {
 
 
     },
-    initEvent: function() {
-        $("#againBtn").click(function() {
+    initEvent: function () {
+        $("#againBtn").click(function () {
             window.location.href = "index.html"
         });
+        $("#detail1").click(function () {
+            Index.showDetail()
+        })
+        $("#closeDialog").click(function () {
+            Index.closeDialog()
+        })
     },
 
-    isBlank: function(obj) {
+    isBlank: function (obj) {
         if (obj == undefined || obj == null || obj == 'null' || obj == '' || obj.length == 0) {
             return true;
         } else if (typeof obj == "object" && obj.length == undefined) {
@@ -37,14 +43,53 @@ var Index = {
             return false;
         }
     },
-    showResult: function(u, p) {
+    showDetail: function () {
+      
+        var val = $("#e").html()
+        var res = ''
+        switch (val) {
+            case '1':
+                res = `<p>内驱1：独立、自信、不依赖、有力量。最man的男人和最有主见的女人</p><p>修行功课：允许自己做不到，不要为了证明自己可以而勉强自己</p>`
+                break;
+            case '2':
+                res = `<p>内驱2：体贴、包容、合作、舒服。暖男和温柔似水的女性</p><p>修行功课：不要为了关系和谐而委屈自己。</p>`
+                break;
+            case '3':
+                res = `<p>内驱3：简单 、直接 、幽默、好玩 、颜值、 面子</p><p>修行功课：不要为了面子而做事</p>`
+                break;
+            case '4':
+                res = `<p>内驱4：现实、 诚信、稳重 、忠诚。靠谱的男人和居家过日子的女人<br修行功课：不要为了安全感不足而做事</p>`
+                break;
+            case '5':
+                res = `<p>内驱5：精力旺盛、魅力、爱自由、多变</p><p>修行功课：不要为了尝试刺激而冒险</p>`
+                break;
+            case '6':
+                res = `<p>内驱6：善良、顾家、责任心、付出</p><p>修行功课：不要一味地付出，爱别人而忘记了自己</p>`
+                break;
+            case '7':
+                res = `<p>内驱7：学习、思考、涵养、被懂大于一切</p><p>修行功课：在关系中，有时候需要主动</p>`
+                break;
+            case '8':
+                res = `<p>内驱8：权威、事业心、领袖、心想事成。有远大抱负的人</p><p>修行功课：接纳失败是生命的一部分</p>`
+                break;
+            case '9':
+                res = `<p>内驱9：大爱、无我、被需要。最富有同情心的人</p><p>修行功课：爱别人之前要爱自己，分清界限</p>`
+                break;
+        }
+        $("#dialogContent").html(res)
+        $("#dialog").show()
+    },
+    closeDialog: function () {
+        $("#dialog").hide()
+    },
+    showResult: function (u, p) {
 
         var u = Index.getParam('userName');
         var p = Index.getParam('picker')
         var pinyin = Index.getParam('pinyin')
         var age = Index.brithdayConAges(p)
-            // 样式控制
-            // 显示数据
+        // 样式控制
+        // 显示数据
 
         if (Index.isBlank(pinyin)) {
             var array = u.split('');
@@ -103,17 +148,17 @@ var Index = {
         $(".overlay").fadeOut();
         $("#resultArea").fadeIn();
         $("#inputArea").hide().removeClass("slideOutUp").removeClass("slideInDown");
-        setTimeout(function() {
+        setTimeout(function () {
             $("body").height(document.body.scrollHeight);
         }, 500)
 
     },
-    getParam: function(name) {
+    getParam: function (name) {
         return Index.getUrlParam(name) || localStorage.getItem(name) ||
             sessionStorage.getItem(name);
     },
 
-    getUrlParam: function(name) {
+    getUrlParam: function (name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
         var r = window.location.search.substr(1).match(reg);
         if (r != null) {
@@ -122,7 +167,7 @@ var Index = {
 
         return null;
     },
-    formatDate: function(date, format) {
+    formatDate: function (date, format) {
         if (typeof date == 'string') {
             if (date.substring(0, date.lastIndexOf(".")) != '') {
                 date = date.substring(0, date.lastIndexOf("."));
@@ -139,9 +184,9 @@ var Index = {
             s: date.getSeconds(), // 秒
             q: Math.floor((date.getMonth() + 3) / 3), // 季度
             S: date.getMilliseconds()
-                // 毫秒
+            // 毫秒
         };
-        format = format.replace(/([yMdhmsqS])+/g, function(all, t) {
+        format = format.replace(/([yMdhmsqS])+/g, function (all, t) {
             var v = map[t];
             if (v !== undefined) {
                 if (all.length > 1) {
@@ -159,7 +204,7 @@ var Index = {
 
         return format;
     },
-    brithdayConAges: function(strBirthday) {
+    brithdayConAges: function (strBirthday) {
         if (!strBirthday) {
             return 0;
         }
@@ -203,7 +248,7 @@ var Index = {
     },
 
 };
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     Index.init();
 });
 
