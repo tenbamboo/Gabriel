@@ -462,6 +462,9 @@ input {
 .dialogWrap .dialog .content p{
     padding-bottom: 10px;
 }
+.dialogWrap .dialog .content p.red{
+    color:red;
+}
 .dialogWrap .dialog .oper{
     padding: 15px;
     text-align: center;
