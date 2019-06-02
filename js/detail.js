@@ -46,7 +46,8 @@ var Index = {
     showDetail: function () {
       
         var val = $("#n").html()
-        val = val.split('/')[1]
+        var  list = val.split('/')
+        val = list[list.length -1]
         var res = ''
         switch (val) {
             case '1':
